@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Drawing</title>
+    <style>
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .rocket {
+            position: relative;
+            width: 100px;
+            height: 300px;
+            background: #1e90ff;
+            border-radius: 20px;
+        }
+
+        .rocket::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 25px;
+            width: 50px;
+            height: 50px;
+            background: #ff69b4;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .window {
+            position: absolute;
+            left: 25px;
+            width: 50px;
+            height: 50px;
+            background: #ccc;
+            border: 3px solid #fff;
+            border-radius: 50%;
+        }
+
+        .window.top {
+            top: 50px;
+        }
+
+        .window.bottom {
+            top: 150px;
+        }
+
+        .fins {
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .fin {
+            width: 30px;
+            height: 50px;
+            background: #8b0000;
+        }
+
+        .flames {
+            position: absolute;
+            bottom: -50px;
+            left: 15px;
+            display: flex;
+            justify-content: space-between;
+            width: 70px;
+        }
+
+        .flame {
+            width: 20px;
+            height: 50px;
+            background: orange;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation: flicker 0.3s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .side-stars {
+            position: relative;
+            width: 100px;
+            height: 100%;
+        }
+
+        .star {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: yellow;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .left .star:nth-child(1) { top: 20px; left: 30px; }
+        .left .star:nth-child(2) { top: 80px; left: 50px; }
+        .left .star:nth-child(3) { top: 140px; left: 10px; }
+        .left .star:nth-child(4) { top: 200px; left: 60px; }
+        .left .star:nth-child(5) { top: 260px; left: 20px; }
+
+        .right .star:nth-child(1) { top: 30px; left: 10px; }
+        .right .star:nth-child(2) { top: 90px; left: 40px; }
+        .right .star:nth-child(3) { top: 150px; left: 20px; }
+        .right .star:nth-child(4) { top: 210px; left: 50px; }
+        .right .star:nth-child(5) { top: 270px; left: 30px; }
+
+    </style>
+</head>
+<body>
+    <div class="stars">
+        <div class="side-stars left">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+        <div class="side-stars right">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+    </div>
+    <div class="rocket">
+        <div class="window top"></div>
+        <div class="window bottom"></div>
+        <div class="fins">
+            <div class="fin"></div>
+            <div class="fin"></div>
+        </div>
+        <div class="flames">
+            <div class="flame"></div>
+            <div class="flame"></div>
+        </div>
+    </div>
+</body>
+</html>
